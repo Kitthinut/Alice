@@ -1,0 +1,991 @@
+//School Exam Score
+
+#include <stdio.h>
+int main()
+{
+    int midterm , final , Total ;
+    printf("Enter Midterm Score : ");
+    scanf("%d",&midterm);
+    printf("Enter Final Score   : ");
+    scanf("%d",&final);
+    printf("---------------------------------------------\n");
+    
+    printf("---------------------------------------------\n");
+    Total=midterm+final;
+    printf("Total score  = %d \n",Total);
+    if(Total>=80)
+    {
+        printf("Grade  =  A");
+    }
+    else if(Total>=70)
+    {
+        printf("Grade  =  B");
+    }
+    else if(Total>=60)
+    {
+        printf("Grade  =  C");
+    }
+    else if(Total>=50)
+    {
+        printf("Grade  =  D");
+    }        
+    else if(Total<50)
+    {
+        printf("Grade  =  F");
+    }    
+    
+    return 0;
+}
+**********************************************************************
+//ATM
+//ให้ใส่พาสเวิร์ด5 ครั้ง แล้วกินบัตร
+
+#include <stdio.h>
+#include <string.h>
+#define PASSWORD "1234"
+
+int main()
+{
+    int num, amount, bn1000, bn500, bn100;
+    float balance = 10000.00;
+    int count = 0;
+    char passwd[5];
+    
+    do {
+        printf("Enter password: ");
+        scanf("%s",passwd);
+        count++;
+    }
+    while((strcmp(passwd, PASSWORD) !=0) && (count < 5));
+    
+    if (count < 5){
+        
+    }
+    else {
+        printf("The number of trial exceeds");
+        
+        
+    return 0;
+    }
+    
+    
+    do {
+        
+        printf("--------Menu--------\n");
+        printf("1. Withdraw         \n");
+        printf("2. Deposit          \n");
+        printf("--------------------\n");
+        printf("Please press a number : \n");
+        scanf("%d", &num);
+    
+    if (num==1){
+        do {
+            printf("Please enter amount of money to be withdraw: ");
+            scanf("%d", &amount);
+            if (amount%100 != 0)
+            printf("ERROR imput amount of money is not correct. Please reenter\n");
+        }
+        
+        while (amount%100 != 0);
+        
+        printf("Balance == %.2f.\n", balance);
+        balance = balance - amount;
+        printf("Withdraw == %10d.\n", amount);
+        bn1000 = amount/1000;
+        amount = amount%1000;
+        printf("Banknote 1000 == %5d.\n", bn1000);
+        bn500  = amount/500;
+        amount = amount%500;
+        printf("Banknote 500 == %5d.\n", bn500);
+        bn100  = amount/100;
+        amount = amount%100;
+        printf("Banknote 100 == %5d.\n", bn100);
+        
+        
+        printf("Current balance == %10.2f.\n", balance);
+        
+    }
+    
+    else if (num==2){
+        do {
+            printf("Please enter amount of money to be deposit: ");
+            scanf("%d", &amount);
+            if (amount%100 != 0)
+            printf("ERROR imput amount of money is not correct. Please reenter\n");
+        }
+        
+        while (amount%100 != 0);
+        
+        printf("Please enter amount of money to be deposit: ");
+        scanf("%d", &amount);
+        printf("Balance == %.2f.\n", balance);
+        balance = balance + amount;
+        printf("Deposit == %10d.\n", amount);
+        bn1000 = amount/1000;
+        amount = amount%1000;
+        printf("Banknote 1000 == %5d.\n", bn1000);
+        bn500  = amount/500;
+        amount = amount%500;
+        printf("Banknote 500 == %5d.\n", bn500);
+        bn100  = amount/100;
+        amount = amount%100;
+        printf("Banknote 100 == %5d.\n", bn100);
+        
+        printf("Current balance == %10.2f.\n", balance);
+        
+    }
+    
+    }
+    while((num ==1)||(num==2));
+    
+    
+    return 0;
+}
+******************************************************************************
+//Decimal & Binary Number 
+#include <stdio.h>
+
+int main()
+{
+    int i, num, val, rem;
+    
+    printf("Enter a decimal number: ");
+    scanf("%d", &num);
+    printf("The binary number: ");
+    val = num;
+    for(i=0; i<8; i++){
+        rem = val % 2;
+        val /= 2;
+        printf("%d", rem);
+    }
+    printf("\n");
+    
+    printf("The octal number: ");
+    val = num;
+    for (i=0; i<8; i++){
+        rem  = val % 8;
+        val /= 8;
+        printf("%d", rem);
+    }
+    printf("\n");
+
+   return 0;
+}
+******************************************************************************
+#Calendar
+
+#include <stdio.h>
+
+int
+main ()
+{
+  //int i;
+
+  //for (i=0; i <= 16;i++)
+  //printf(" %08o", i);
+
+  //printf("\n");
+
+  //for (i=0; i <= 32;i++)
+  //  printf(" %04X", i);
+
+  int may = 31, count = 0, i;
+
+  printf ("                 MAY\n");
+  printf ("   SUN  MON  TUE  WED  THU  FRI  SAT\n");
+
+  for (i = 1; i <= may; i++)
+    {
+      printf ("%5d", i);
+      count++;
+      if (count == 7)
+	{
+	  printf ("\n");
+	  count = 0;
+	}
+    }
+
+  int june = 30;
+
+  printf ("\ncount = %d\n", count);
+  printf ("                 JUNE\n");
+  printf ("   SUN  MON  TUE  WED  THU  FRI  SAT\n");
+
+  for (i = 1; i <= count; i++)
+    printf ("%5s", " ");
+  for (i = 1; i <= june; i++)
+    {
+      printf ("%5d", i);
+      count++;
+      if (count == 7)
+	{
+	  printf ("\n");
+	  count = 0;
+	}
+    }
+  printf ("\ncount = %d\n", count);
+
+
+
+  int july = 31;
+
+  printf ("\ncount = %d\n", count);
+  printf ("                 JULY\n");
+  printf ("   SUN  MON  TUE  WED  THU  FRI  SAT\n");
+
+  for (i = 1; i <= count; i++)
+    printf ("%5s", " ");
+  for (i = 1; i <= july; i++)
+    {
+      printf ("%5d", i);
+      count++;
+      if (count == 7)
+	{
+	  printf ("\n");
+	  count = 0;
+	}
+    }
+  printf ("\ncount = %d\n", count);
+
+
+  return 0;
+}
+******************************************************************************
+#Input Calendar
+
+#include <stdio.h>
+
+int
+main ()
+{
+  //int i;
+
+  //for (i=0; i <= 16;i++)
+  //printf(" %08o", i);
+
+  //printf("\n");
+
+  //for (i=0; i <= 32;i++)
+  //  printf(" %04X", i);
+  
+  int input;
+  printf("Enter number: ");
+  scanf("%d", &input);
+  int i, count;
+  
+  if (input == 1){
+      int jan = 31, count = 6;
+      
+  printf ("\ncount = %d\n", count);
+  printf ("                 JANUARY\n");
+  printf ("   SUN  MON  TUE  WED  THU  FRI  SAT\n");
+  
+  for (i = 1; i <= count; i++)
+    printf ("%5s", " ");
+
+  for (i = 1; i <= jan; i++)
+    {
+      printf ("%5d", i);
+      count++;
+      if (count == 7)
+	{
+	  printf ("\n");
+	  count = 0;
+	}
+    }
+  }
+  
+  else if (input == 2){
+      int feb = 28, count = 2;
+  
+  printf ("\ncount = %d\n", count);
+  printf ("              FEBRUARY\n");
+  printf ("   SUN  MON  TUE  WED  THU  FRI  SAT\n");
+
+  for (i = 1; i <= count; i++)
+    printf ("%5s", " ");
+    
+  for (i = 1; i <= feb; i++)
+    {
+      printf ("%5d", i);
+      count++;
+      if (count == 7)
+	{
+	  printf ("\n");
+	  count = 0;
+	}
+    }
+  }
+  
+  else if(input == 3){
+      int mar = 31, count = 2;
+  
+  printf ("\ncount = %d\n", count);
+  printf ("                 MARCH\n");
+  printf ("   SUN  MON  TUE  WED  THU  FRI  SAT\n");
+  
+  for (i = 1; i <= count; i++)
+    printf ("%5s", " ");
+    
+  for (i = 1; i <= mar; i++)
+    {
+      printf ("%5d", i);
+      count++;
+      if (count == 7)
+	{
+	  printf ("\n");
+	  count = 0;
+	}
+    }
+  }
+
+  else if(input == 4){
+      int apr = 30, count = 5;
+  
+  printf ("\ncount = %d\n", count);
+  printf ("                 APRIL\n");
+  printf ("   SUN  MON  TUE  WED  THU  FRI  SAT\n");
+
+  for (i = 1; i <= count; i++)
+    printf ("%5s", " ");
+    
+  for (i = 1; i <= apr; i++)
+    {
+      printf ("%5d", i);
+      count++;
+      if (count == 7)
+	{
+	  printf ("\n");
+	  count = 0;
+	}
+    }
+  }
+  
+   else if(input == 5){
+      int may = 31, count = 0;
+  
+  printf ("\ncount = %d\n", count);
+  printf ("                 MAY\n");
+  printf ("   SUN  MON  TUE  WED  THU  FRI  SAT\n");
+
+  for (i = 1; i <= count; i++)
+    printf ("%5s", " ");
+    
+  for (i = 1; i <= may; i++)
+    {
+      printf ("%5d", i);
+      count++;
+      if (count == 7)
+	{
+	  printf ("\n");
+	  count = 0;
+	}
+    }
+  }
+  
+  else if(input == 6){
+      int jun = 30, count = 3;
+  
+  printf ("\ncount = %d\n", count);
+  printf ("                 JUNE\n");
+  printf ("   SUN  MON  TUE  WED  THU  FRI  SAT\n");
+
+  for (i = 1; i <= count; i++)
+    printf ("%5s", " ");
+    
+  for (i = 1; i <= jun; i++)
+    {
+      printf ("%5d", i);
+      count++;
+      if (count == 7)
+	{
+	  printf ("\n");
+	  count = 0;
+	}
+    }
+  }
+  
+  else if(input == 7){
+      int jul = 31, count = 5;
+  
+  printf ("\ncount = %d\n", count);
+  printf ("                 JULY\n");
+  printf ("   SUN  MON  TUE  WED  THU  FRI  SAT\n");
+
+  for (i = 1; i <= count; i++)
+    printf ("%5s", " ");
+    
+  for (i = 1; i <= jul; i++)
+    {
+      printf ("%5d", i);
+      count++;
+      if (count == 7)
+	{
+	  printf ("\n");
+	  count = 0;
+	}
+    }
+  }
+  
+  else if(input == 8){
+      int aug = 31, count = 1;
+  
+  printf ("\ncount = %d\n", count);
+  printf ("                 AUGUST\n");
+  printf ("   SUN  MON  TUE  WED  THU  FRI  SAT\n");
+
+  for (i = 1; i <= count; i++)
+    printf ("%5s", " ");
+    
+  for (i = 1; i <= aug; i++)
+    {
+      printf ("%5d", i);
+      count++;
+      if (count == 7)
+	{
+	  printf ("\n");
+	  count = 0;
+	}
+    }
+  }
+  
+  else if(input == 9){
+      int sep = 30, count = 4;
+  
+  printf ("\ncount = %d\n", count);
+  printf ("           SEPTEMBER\n");
+  printf ("   SUN  MON  TUE  WED  THU  FRI  SAT\n");
+
+  for (i = 1; i <= count; i++)
+    printf ("%5s", " ");
+    
+  for (i = 1; i <= sep; i++)
+    {
+      printf ("%5d", i);
+      count++;
+      if (count == 7)
+	{
+	  printf ("\n");
+	  count = 0;
+	}
+    }
+  }
+  
+  else if(input == 10){
+      int oct = 31, count = 6;
+  
+  printf ("\ncount = %d\n", count);
+  printf ("                 OCTOBER\n");
+  printf ("   SUN  MON  TUE  WED  THU  FRI  SAT\n");
+
+  for (i = 1; i <= count; i++)
+    printf ("%5s", " ");
+    
+  for (i = 1; i <= oct; i++)
+    {
+      printf ("%5d", i);
+      count++;
+      if (count == 7)
+	{
+	  printf ("\n");
+	  count = 0;
+	}
+    }
+  }
+  
+  else if(input == 11){
+      int nov = 30, count = 2;
+  
+  printf ("\ncount = %d\n", count);
+  printf ("                NOVEMBER\n");
+  printf ("   SUN  MON  TUE  WED  THU  FRI  SAT\n");
+
+  for (i = 1; i <= count; i++)
+    printf ("%5s", " ");
+    
+  for (i = 1; i <= nov; i++)
+    {
+      printf ("%5d", i);
+      count++;
+      if (count == 7)
+	{
+	  printf ("\n");
+	  count = 0;
+	}
+    }
+  }
+  
+  else if(input == 12){
+      int dec = 31, count = 4;
+  
+  printf ("\ncount = %d\n", count);
+  printf ("               DECEMBER\n");
+  printf ("   SUN  MON  TUE  WED  THU  FRI  SAT\n");
+
+  for (i = 1; i <= count; i++)
+    printf ("%5s", " ");
+    
+  for (i = 1; i <= dec; i++)
+    {
+      printf ("%5d", i);
+      count++;
+      if (count == 7)
+	{
+	  printf ("\n");
+	  count = 0;
+	}
+    }
+  }
+
+
+  
+  printf ("\ncount = %d\n", count);
+
+
+  return 0;
+}
+******************************************************************************
+#Loop Made Calendar
+
+#include <stdio.h>
+enum Month {JAN=1,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC};
+
+int main()
+{
+    int month;
+    int Days[13] = {0,31,28,31,30,31,30,31,31,30,31,30,31}; // Array
+    int Cnts[13] = {0,6,2,2,5,0,3,5,1,4,6,2,4};
+    char *Mons[13] = {"","JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"};
+    int days, i, count = 0;
+    
+    printf("Enter the month number [1=JAN, 2=FEB]:"); scanf("%d", &month);
+    //printf("Month = %d-%d", month,Days[month]);
+    
+    printf("              %s\n", Mons[month]);
+    days = Days[month];
+    count = Cnts[month];
+    printf("  SUN MON TUE WED THU FRI SAT\n");
+    // count * 4 BLANK
+    for (i=1;i <= count;i++) printf("%4s", " ");
+    for (i=1;i <= days;i++) {
+        printf("%4d", i); count++;
+        if (count == 7) { printf("\n"); count = 0; }
+    }
+    //printf("\ncount = %d\n", count);
+    return 0;
+}
+******************************************************************************
+#Function Year Calendar
+
+#include <stdio.h>
+  
+// Function that returns the index of the
+// day for date DD/MM/YYYY
+int dayNumber(int day, int month, int year)
+{
+  
+    static int t[] = { 0, 3, 2, 5, 0, 3,
+                       5, 1, 4, 6, 2, 4 };
+    year -= month < 3;
+    return (year + year / 4
+            - year / 100
+            + year / 400
+            + t[month - 1] + day)
+           % 7;
+}
+  
+// Function that returns the name of the
+// month for the given month Number
+// January - 0, February - 1 and so on
+char* getMonthName(int monthNumber)
+{
+    char* month;
+  
+    switch (monthNumber) {
+    case 0:
+        month = "January";
+        break;
+    case 1:
+        month = "February";
+        break;
+    case 2:
+        month = "March";
+        break;
+    case 3:
+        month = "April";
+        break;
+    case 4:
+        month = "May";
+        break;
+    case 5:
+        month = "June";
+        break;
+    case 6:
+        month = "July";
+        break;
+    case 7:
+        month = "August";
+        break;
+    case 8:
+        month = "September";
+        break;
+    case 9:
+        month = "October";
+        break;
+    case 10:
+        month = "November";
+        break;
+    case 11:
+        month = "December";
+        break;
+    }
+    return month;
+}
+  
+// Function to return the number of days
+// in a month
+int numberOfDays(int monthNumber, int year)
+{
+    // January
+    if (monthNumber == 0)
+        return (31);
+  
+    // February
+    if (monthNumber == 1) {
+        // If the year is leap then Feb
+        // has 29 days
+        if (year % 400 == 0
+            || (year % 4 == 0
+                && year % 100 != 0))
+            return (29);
+        else
+            return (28);
+    }
+  
+    // March
+    if (monthNumber == 2)
+        return (31);
+  
+    // April
+    if (monthNumber == 3)
+        return (30);
+  
+    // May
+    if (monthNumber == 4)
+        return (31);
+  
+    // June
+    if (monthNumber == 5)
+        return (30);
+  
+    // July
+    if (monthNumber == 6)
+        return (31);
+  
+    // August
+    if (monthNumber == 7)
+        return (31);
+  
+    // September
+    if (monthNumber == 8)
+        return (30);
+  
+    // October
+    if (monthNumber == 9)
+        return (31);
+  
+    // November
+    if (monthNumber == 10)
+        return (30);
+  
+    // December
+    if (monthNumber == 11)
+        return (31);
+}
+  
+// Function to print the calendar of
+// the given year
+void printCalendar(int year)
+{
+    printf("     Calendar - %d\n\n", year);
+    int days;
+  
+    // Index of the day from 0 to 6
+    int current = dayNumber(1, 1, year);
+  
+    // i for Iterate through months
+    // j for Iterate through days
+    // of the month - i
+    for (int i = 0; i < 12; i++) {
+        days = numberOfDays(i, year);
+  
+        // Print the current month name
+        printf("\n ------------%s-------------\n",
+               getMonthName(i));
+  
+        // Print the columns
+        printf(" Sun   Mon  Tue  Wed  Thu  Fri  Sat\n");
+  
+        // Print appropriate spaces
+        int k;
+        for (k = 0; k < current; k++)
+            printf("     ");
+  
+        for (int j = 1; j <= days; j++) {
+            printf("%5d", j);
+  
+            if (++k > 6) {
+                k = 0;
+                printf("\n");
+            }
+        }
+  
+        if (k)
+            printf("\n");
+  
+        current = k;
+    }
+  
+    return;
+}
+  
+// Driver Code
+int main()
+{
+    int year = 2021;
+  
+    // Function Call
+    printCalendar(year);
+    return 0;
+}
+******************************************************************************
+#Well made Calendar Version
+
+#include <stdio.h>
+int month_days[]={0,31,28,31,30,31,30,31,31,30,31,30,31};
+char *month_name[]=
+{
+	" ",
+	"\n\n\nJanuary",
+	"\n\n\nFebruary",
+	"\n\n\nMarch",
+	"\n\n\nApril",
+	"\n\n\nMay",
+	"\n\n\nJune",
+	"\n\n\nJuly",
+	"\n\n\nAugust",
+	"\n\n\nSeptember",
+	"\n\n\nOctober",
+	"\n\n\nNovember",
+	"\n\n\nDecember"
+};
+
+/* This functions returns daycode of the first
+   day of the year. if daycode is 1, first day is 
+   Monday
+*/
+
+int get_first_daycode(int year)
+{
+	int daycode;
+	int x, y, z;
+	
+	x = (year - 1) / 4;
+	y = (year - 1) / 100;
+	z = (year - 1) / 400;
+	daycode = (year + x - y + z) %7;
+	return daycode;
+}
+
+
+void set_feb_days(int year)
+{
+	if(year% 4 == 0 && year%100 != 0 || year%400 == 0)
+	   month_days[2] = 29;
+	else
+	   month_days[2] = 28;
+}
+
+void print_calendar(int year, int daycode)
+{
+	int month, day;
+	for ( month = 1; month <= 12; month++ )
+	{
+		printf("%s, %d", month_name[month], year);
+		printf("\n\nSun  Mon  Tue  Wed  Thu  Fri  Sat\n" );
+		
+		/*For printing the first date on correct position, use some space
+		  to move the cursor on the correct location to print first
+		  date under proper day name
+		*/
+		for ( day = 1; day <= 1 + daycode * 5; day++ )
+		{
+			printf(" ");
+		}
+		
+		/* For loop from day 1 to last day of month,for printing all the dates for one month*/
+		for ( day = 1; day <= month_days[month]; day++ )
+		{
+			printf("%2d", day );
+			
+			/* Checking if day before Saturday, otherwise start next line from Sunday.*/
+			if ( ( day + daycode ) % 7 > 0 )
+				printf("   " );
+			else
+				printf("\n " );
+		}
+			/* Here setting position for next month, according to the daycode*/
+			daycode = ( daycode + month_days[month] ) % 7;
+	}
+}
+
+int main(void)
+{
+	int year, daycode, leapyear;
+	
+	printf("Please Enter a Four Digit Year,{Example} 2020 : ");
+	scanf("%d", &year);
+	daycode = get_first_daycode(year);
+	set_feb_days(year);
+	print_calendar(year, daycode);
+	printf("\n");
+	return 0;
+}
+******************************************************************************
+#How many days you had lived?
+
+#include <stdio.h>
+
+int check_leap_year(int year){
+    
+    if((year % 4 == 0) && (year % 100 != 0))
+        return 1;
+    else
+        return 0;
+}
+
+int
+main ()
+{
+  int bday, bmonth, byear, tday, tmonth, tyear;
+  int lyears, lmonth, ldays;
+
+  printf ("Enter your Birth Date: ");
+  scanf ("%d", &bday);
+  printf ("Enter your Birth Month: ");
+  scanf ("%d", &bmonth);
+  printf ("Enter your Birth Year (A.D.): ");
+  scanf ("%d", &byear);
+  printf("\n");
+  printf ("Your Birth is on \nDay:%d  Month:%d  Year:%d", bday, bmonth, byear);
+
+  printf ("\n");
+  printf ("\n");
+  printf ("Enter Today Date: ");
+  scanf ("%d", &tday);
+  printf ("Enter This Month: ");
+  scanf ("%d", &tmonth);
+  printf ("Enter This Year: ");
+  scanf ("%d", &tyear);
+  printf("\n");
+  printf ("Today is \nDay:%d  Month:%d  Year:%d", tday, tmonth, tyear);
+
+  //calculate
+  {
+    int month[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+    if (bday > tday)
+      tday = tday + month[bmonth - 1];
+    tmonth = tmonth - 1;
+  }
+  if (bday > tmonth)
+    {
+      tyear = tyear - 1;
+      tmonth = tmonth + 12;
+    }
+  int final_date = tday - bday;
+  int final_month = tmonth - bmonth;
+  int final_year = tyear - byear;
+  
+  lyears = final_year * 365;
+  lmonth = final_month * 30;
+ 
+  ldays = lyears + lmonth + final_date;
+   
+  
+  printf("\n");
+  printf("\n");
+  printf("\n");
+  printf ("Present Age Days: %d", ldays);
+
+  return 0;
+}
+******************************************************************************
+//Getchar
+
+#include <stdio.h>
+
+int main()
+{
+    char ch;
+    int  c2;
+    int i;
+    
+    ch = getchar();
+    
+    for (i = ch; i <= 'Z'; i++)
+        printf("%c %-3d", i, i);
+    
+    if (ch == 'A')printf("\n1");
+    else if (ch == 'B')printf("\n2");
+    
+    switch (ch){
+        case 'A' : printf("\n1");break;
+        case 'B' : printf("\n2");break;
+        case 'C' : printf("\n3");break;
+        case 'D' : printf("\n4");break;
+        default  : printf("----------");
+    }
+    
+    return 0;
+}
+******************************************************************************
+#Name Getchar
+
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char ch; // 1 byte
+    int  c2; // 4 bytes
+    int i, sum =0;
+    char inputStr[100]; // Array of characters
+    int  arrInt[100];   // Array of integers
+    char *input = "KITTHINUT"; // String
+    
+    for (i=0;i <= strlen(input);i++) 
+        printf("[%c]", input[i]);
+        
+    printf("\n");
+    for (i=0;i <= strlen(input);i++) 
+        printf("[%d]", input[i]);
+        
+    printf("\n");
+    for (i=0;i <= strlen(input)-1;i++) 
+        printf("[%d]", input[i]-'A'+1);
+    printf("\n");
+    for (i=0;i <= strlen(input)-1;i++) 
+        sum = sum + input[i]-'A'+1;
+    printf("\nSummation = %d", sum);
+    //gets(inputStr,sizeof(char),100);
+    //printf("%s\n", inputStr);
+    
+    // ch = getchar(); // ATTITUDE  A = 1 T = 20
+    
+    //for (i = ch; i <= 'Z'; i++)
+    //    printf("%c %-3d", i, i);
+       
+    
+    
+    return 0;
+}
