@@ -1,0 +1,120 @@
+import numpy as np
+
+#List
+
+npdata = np.array([10, 20, 30, 40, 50])
+print(npdata)
+print(type(npdata))
+print(npdata[0])
+print(npdata[1])
+print(npdata[2])
+print(npdata[3])
+
+#Tuple
+
+tuple1 = (10, 20, 30, 40, 50)
+
+npdata = np.array([10, 20, 30, 40, 50])
+print(npdata)
+print(type(npdata))
+print(npdata[0])
+print(npdata[1])
+print(npdata[2])
+print(npdata[3])
+*********************************************************
+#สร้าง numpy array ผลคูณแม่12
+#ใช้ Express Function >> Lambda Function
+#ผลลัพธ์ที่ได้ >> [12, 24, 36, 48, ..., 144]
+
+result = np.array([12 * i for i in range(1, 13)])
+print(result)
+print(type(result))
+*********************************************************
+#เปลี่ยนเป็น float >> dtype = float
+
+data = np.array([12, 10, -10, 20, 45], dtype = float)
+print(data)
+print(type(data))
+*********************************************************
+#Float to Integer
+#dtype = int
+
+data = np.array([12.23, 10.00, -10.01, 20.22, 45.23], dtype = int)
+print(data)
+print(type(data))
+
+#ทศนิยมหาย
+*********************************************************
+#Boolean
+#0-> False, ถ้าค่าไม่เป็น 0 -> True
+#dtype = np.bool
+
+data = np.array([0, 10.22, -10.345, 0, 45.089], dtype = np.bool)
+print(data)
+print(type(data))
+*********************************************************
+#สร้าง Numpy array ด้วยข้อมูลหลายชนิด
+
+data = np.array([True, 'Hello', 10.22, -10.345, False, 'Bangkok', 45.089, 45])
+print(data)
+print(type(data))
+
+#Check Numpy Data Type
+print(data.dtype)
+*********************************************************
+#Numpy Array - Statistic Function
+
+data = [10, 20, 30, 40, 50]
+
+a = np.mean(data)
+b = np.std(data)
+c = np.min(data)
+d = np.max(data)
+
+print(a, b, c, d, sep = '\n')
+*********************************************************
+#Nested Array
+
+x = [
+      [9, 9.5, 8, 8.5, 10, 7],
+      [8, 9, 8, 9.5, 10, 6],
+      [10, 9, 8, 6.5, 10, 6],
+      [9, 9, 8, 8.5, 10, 8],
+      [7, 8, 9, 9.5, 10, 9],
+]
+
+npx = np.array(x)
+print(npx)
+*********************************************************
+import pandas as pd
+
+list1 = [10, 20, 30.45, 45, 21, 99]
+
+srdata = pd.Series(data = list1)
+print(srdata)
+print(type(srdata))
+*********************************************************
+#Create pd from Tuple Series
+
+tuple1 = (10, 20, 30.45, 45, 21, 99)
+
+srdata = pd.Series(data = list1)
+print(srdata)
+print(type(srdata))
+*********************************************************
+#Quantity & Total 
+
+quantity = int(input("จำนวนสินค้าที่ซื้อ: "))
+total = float(input("ราคาสินค้ารวม: ")
+
+print(type(quantity))
+print(type(total))
+
+if quantity > 3 and total > 500:
+  pay = total - (total*0.1)
+else:
+  pay = total
+
+print("Customer buy : "+ str(quantity)+ "items")
+print("Total price: "+ str(total))
+print("Customer has to pay :" + str(pay) + "Baht")
